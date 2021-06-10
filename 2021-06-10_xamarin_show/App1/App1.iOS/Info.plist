@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>UIDeviceFamily</key>
+    <array>
+        <integer>1</integer>
+        <integer>2</integer>
+    </array>
+    <key>UISupportedInterfaceOrientations</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>UISupportedInterfaceOrientations~ipad</key>
+    <array>
+        <string>UIInterfaceOrientationPortrait</string>
+        <string>UIInterfaceOrientationPortraitUpsideDown</string>
+        <string>UIInterfaceOrientationLandscapeLeft</string>
+        <string>UIInterfaceOrientationLandscapeRight</string>
+    </array>
+    <key>MinimumOSVersion</key>
+    <string>8.0</string>
+    <key>CFBundleDisplayName</key>
+    <string>App1</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.companyname.App1</string>
+    <key>CFBundleVersion</key>
+    <string>1.0</string>
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+    <key>CFBundleName</key>
+    <string>App1</string>
+    <key>XSAppIconAssets</key>
+    <string>Assets.xcassets/AppIcon.appiconset</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>The beacons or geofences or GPS always have you!</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>The beacons or geofences or GPS always have you!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>The beacons or geofences or GPS always have you!</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>Example</string>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Gimmie some BLUETOOTH</string>
+	<key>NSMotionUsageDescription</key>
+	<string>Required for pedometer</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>fetch</string>
+		<string>remote-notification</string>
+		<string>processing</string>
+	</array>
+</dict>
+</plist>
