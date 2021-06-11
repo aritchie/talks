@@ -9,8 +9,15 @@ namespace App1
     {
         public override void ConfigureServices(IServiceCollection services, IPlatform platform)
         {
-            services.RegisterJob(typeof(MyJob));
+            services.RegisterJob(new Shiny.Jobs.JobInfo(typeof(MyJob)) {
+                DeviceCharging = true,
+                BatteryNotLow = true,
+                RequiredInternetAccess = Shiny.Jobs.InternetAccess.Any
+            });
             services.UseNotifications();
+
+            //services.UsePush<MyPushDelegate>();
+            //services.UsePushAzureNotificationHubs<MyPushDelegate>("Listener connection string", "hub name");
         }
 
 
@@ -20,3 +27,14 @@ namespace App1
         }
     }
 }
+
+
+
+
+
+
+
+
+
+////services.UsePush<MyPushDelegate>();
+//services.UsePushAzureNotificationHubs<MyPushDelegate>("", "");
