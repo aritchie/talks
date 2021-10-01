@@ -23,9 +23,9 @@
 	<key>MinimumOSVersion</key>
 	<string>8.0</string>
 	<key>CFBundleDisplayName</key>
-	<string>App1</string>
+	<string>XamExpertDays</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.companyname.App1</string>
+	<string>com.shinyorg.xamexpertdays</string>
 	<key>CFBundleVersion</key>
 	<string>1.0</string>
 	<key>UILaunchStoryboardName</key>

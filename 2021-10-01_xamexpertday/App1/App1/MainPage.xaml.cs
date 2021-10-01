@@ -26,20 +26,6 @@ namespace App1
             var success = result.FirstOrDefault().Success ? "Success" : "FAIL";
 
             await this.DisplayAlert("Job Done", "Yay!!  " + success, "OK");
-
-
-            var push = ShinyHost.Resolve<IPushManager>();
-            var pushAccess = await push.RequestAccess();
-
-            push
-                .WhenReceived()
-                .Subscribe(pushNotification =>
-                {
-                    if (pushNotification.Data.ContainsKey("Message"))
-                    {
-                        Console.WriteLine(pushNotification.Data["Message"]);
-                    }
-                });
         }
     }
 }
