@@ -31,24 +31,24 @@ public class OrderViewModelTests
     }
 
 
-    //[Fact]
-    //public void CalculateTax_TaxService_Mock()
-    //{
-    //    var taxRate = 1.13;
-    //    var mock = new MockTaxService { TaxRate = taxRate }; // same tax rate as before
-    //    var vm = new Order2ViewModel(mock);
+    [Fact]
+    public void CalculateTax_TaxService_Mock()
+    {
+        var taxRate = 1.13;
+        var mock = new MockTaxService { TaxRate = taxRate }; // same tax rate as before
+        var vm = new Order2ViewModel(mock);
 
-    //    var subtotal = CreateRandomSubtotal();
-    //    vm.SubTotal = subtotal;
-    //    _output.WriteLine("Using Sub-Total: " + subtotal);
+        var subtotal = CreateRandomSubtotal();
+        vm.SubTotal = subtotal;
+        _output.WriteLine("Using Sub-Total: " + subtotal);
 
-    //    vm.Calculate.Execute(null);
+        vm.Calculate.Execute(null);
 
-    //    var total = CalculateExpectedTotal(subtotal);
-    //    _output.WriteLine("Expected Total: " + total);
+        var total = CalculateExpectedTotal(subtotal);
+        _output.WriteLine("Expected Total: " + total);
 
-    //    Assert.Equal(vm.Total, total);
-    //}
+        Assert.Equal(vm.Total, total);
+    }
 
 
     [Fact]
