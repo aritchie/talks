@@ -1,4 +1,5 @@
 using NetConfMaui.Services;
+
 using Xunit;
 using Xunit.Abstractions;
 
@@ -16,13 +17,11 @@ public class OrderViewModelTests
 
 
     [Fact]
-    public async Task CalculateTax_TaxService_Integration_Async()
+    public async Task CalculateTax_TaxService()
     {
-        // this tax service was ported from a very old piece of code - we will use it in our MAUI application now
-        // note that we have no control of the tax rate here - it is likely doing internal logic or pulling from a remote service to calculate
         var taxService = new TaxService();
 
-        var vm = new Order3ViewModel(taxService);
+        var vm = new OrderViewModel(taxService);
         var subtotal = CreateRandomSubtotal();
         vm.SubTotal = subtotal;
         _output.WriteLine("Using Sub-Total: " + subtotal);
@@ -35,7 +34,7 @@ public class OrderViewModelTests
         var tcs = new TaskCompletionSource<bool>();
         vm.PropertyChanged += (sender, args) =>
         {
-            if (args.PropertyName == nameof(Order2ViewModel.Total))
+            if (args.PropertyName == nameof(OrderViewModel.Total))
                 tcs.SetResult(true);
         };
 
@@ -50,9 +49,9 @@ public class OrderViewModelTests
     double CalculateExpectedTotal(double subtotal)
     {
 #if MACCATALYST || IOS
-        subtotal += 1.0;
+        subtotal = subtotal + 1.0;
 #else
-        subtotal += 0.5;
+        subtotal = subtotal + 0.5;
 #endif
         return Math.Round(subtotal * 1.13, 2);
     }

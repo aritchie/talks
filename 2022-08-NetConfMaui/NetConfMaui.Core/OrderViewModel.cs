@@ -1,15 +1,23 @@
-﻿using System.Windows.Input;
+﻿using NetConfMaui.Services;
+using System.Windows.Input;
 
 namespace NetConfMaui;
 
 
 public class OrderViewModel : BaseViewModel
 {
-    public OrderViewModel()
+    public OrderViewModel(ITaxService taxService)
     {
-        Calculate = new Command(() =>
+        Calculate = new Command(async () =>
         {
-            Total = Math.Round(subtotal * 1.13, 2); // 13% HST in Ontario, Canada
+#if MACCATALYST || IOS
+            var subtotal = SubTotal + 1.0;
+#elif ANDROID
+            var subtotal = SubTotal + 0.5;
+#else
+            var subtotal = SubTotal;
+#endif
+            Total = await taxService.CalculateTotal(subtotal);
         });
     }
 
