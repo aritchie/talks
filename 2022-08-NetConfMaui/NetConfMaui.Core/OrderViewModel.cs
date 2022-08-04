@@ -1,17 +1,27 @@
-﻿namespace NetConfMaui;
+﻿using System.Windows.Input;
+
+namespace NetConfMaui;
 
 
 public class OrderViewModel : BaseViewModel
 {
+    public OrderViewModel()
+    {
+        Calculate = new Command(() =>
+        {
+            Total = Math.Round(subtotal * 1.13, 2); // 13% HST in Ontario, Canada
+        });
+    }
+
+
+    public ICommand Calculate { get; }
+
+
     double subtotal;
     public double SubTotal
     {
         get => subtotal;
-        set
-        {
-            Set(ref subtotal, value);
-            Total = subtotal + Math.Round(subtotal * 0.13, 2); // 13% HST in Ontario, Canada
-        }
+        set => Set(ref subtotal, value);
     }
 
 

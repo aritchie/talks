@@ -1,27 +1,27 @@
 ﻿using NetConfMaui.Services;
+using System.Windows.Input;
 
 namespace NetConfMaui;
 
 
 public class Order2ViewModel : BaseViewModel
 {
-    readonly ITaxService _taxService;
-
     public Order2ViewModel(ITaxService taxService)
     {
-        _taxService = taxService;
+        Calculate = new Command(async () =>
+        {
+            Total = await taxService.CalculateTotal(SubTotal);
+        });
     }
 
+
+    public ICommand Calculate { get; }
 
     double subtotal;
     public double SubTotal
     {
         get => subtotal;
-        set
-        {
-            Set(ref subtotal, value);
-            Total = _taxService.CalculateTotal(subtotal);
-        }
+        set => Set(ref subtotal, value);
     }
 
 

@@ -2,5 +2,5 @@
 
 public interface ITaxService
 {
-    double CalculateTotal(double subtotal);
+    Task<double> CalculateTotal(double subtotal);
 }

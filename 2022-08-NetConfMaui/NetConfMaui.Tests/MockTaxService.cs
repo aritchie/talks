@@ -8,9 +8,9 @@ namespace NetConfMaui.Tests
         public double TaxRate { get; set; }
 
 
-        public double CalculateTotal(double subtotal)
+        public Task<double> CalculateTotal(double subtotal)
         {
-            return Math.Round(subtotal * TaxRate, 2);
+            return Task.FromResult(Math.Round(subtotal * TaxRate, 2));
         }
     }
 }
