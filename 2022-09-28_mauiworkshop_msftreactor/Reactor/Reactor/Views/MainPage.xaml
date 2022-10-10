@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:Reactor.ViewModels"
+             xmlns:models="clr-namespace:Reactor.Models"
+             x:DataType="viewmodels:MainViewModel"
+             x:Class="Reactor.Views.MainPage"
+             Title="MainPage">
+
+    <RefreshView Command="{Binding Load}"
+                 IsRefreshing="{Binding IsBusy}">
+
+        <CollectionView ItemsSource="{Binding Monkeys}">
+            <CollectionView.EmptyView>
+                <Label Text="No Monkeys Found" />
+            </CollectionView.EmptyView>
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:Monkey">
+                    <VerticalStackLayout>
+                        <Image Source="{Binding Image}" />
+                        <Label Text="{Binding Name}" />
+                        <Label Text="{Binding Details}" />
+                    </VerticalStackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </RefreshView>
+</ContentPage>
